@@ -39,3 +39,14 @@ return currentValue.salesFigure < accumulator.salesFigure ? accumulator : curren
 return {topPerformer, bottomPerformer};
 }
 
+function generatePerformanceReport (salesData) {
+    calculateAverageSales (salesData);
+    determinePerformanceRating (salesData);
+    findTopAndBottomPerformers (salesData);
+return performanceReport = {
+    namd: salesData[0].name,
+    average_sales: calculateAverageSales(salesData),
+    rating: determinePerformanceRating (salesData),
+    top_performer_and_bottom_performer: findTopAndBottomPerformers (salesData)
+}
+}
