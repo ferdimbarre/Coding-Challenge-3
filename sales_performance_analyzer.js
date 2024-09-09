@@ -22,4 +22,20 @@ if (average > 10000) {
 return PerformanceRating 
 } 
 
+// function to identify top and bottom performers
+// salesPeople [salesFigure, employeeName]
+function findTopAndBottomPerformers (salesPeople) {
+    let bottomPerformer =
+salesPeople.reduce ((accumulator, currentValue) => {
+    return currentValue.salesFigure < accumulator.salesFigure ? currentValue : accumulator; // accumulator is min so far. if acc > CV, return acc, if not, CV is new accumulator
+},salesPeople[0]); // output will be lowest sales
+
+let topPerformer =
+salesPeople.reduce ((accumulator, currentValue) => {
+return currentValue.salesFigure < accumulator.salesFigure ? accumulator : currentValue; 
+}, salesPeople[0]);
+
+// create an object to return top and bottom performer:
+return {topPerformer, bottomPerformer};
+}
 
